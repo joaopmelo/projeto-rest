@@ -1,6 +1,5 @@
-package server.rest;
+package server.dao;
 
-import server.dao.JpaDAO;
 import server.model.Hotel;
 
 import javax.persistence.EntityManager;

@@ -11,8 +11,6 @@ public class Bairro implements ICadastro, Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     private String nome;
-    @OneToOne
-    private Hotel hotel;
     @ManyToOne
     private Cidade cidade;
 

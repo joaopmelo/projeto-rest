@@ -1,13 +1,15 @@
 package server.rest;
 
-import server.dao.DAO;
+import server.dao.HotelDao;
 import server.model.Hotel;
 
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 @Path("/hotel")
+@Transactional
 public class HotelResource {
 
     @Inject

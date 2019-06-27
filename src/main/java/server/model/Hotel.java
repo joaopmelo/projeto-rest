@@ -2,7 +2,6 @@ package server.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,9 +12,9 @@ public class Hotel implements ICadastro, Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
-    @OneToOne
+    @ManyToOne
     private Bairro bairro;
-    @OneToMany(mappedBy = "hotel")
+    @OneToMany(mappedBy = "hotel", fetch = FetchType.EAGER)
     private List<Andar> andares = new ArrayList<>();
 
 
