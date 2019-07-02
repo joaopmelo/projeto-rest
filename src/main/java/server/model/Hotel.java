@@ -2,21 +2,20 @@ package server.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name = "hotel")
 public class Hotel implements ICadastro, Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
-    @OneToOne
+    @ManyToOne
     private Bairro bairro;
-    @OneToMany(mappedBy = "hotel")
-    private List<Andar> andares = new ArrayList<>();
+    @OneToMany
+    private List<Andar> andares;
 
 
     @Override
@@ -27,6 +26,14 @@ public class Hotel implements ICadastro, Serializable {
     @Override
     public void setId(long id) {
         this.id=id;
+    }
+
+    public Bairro getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(Bairro bairro) {
+        this.bairro = bairro;
     }
 
     public List<Andar> getAndares() {

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table
+@Table(name = "quarto")
 public class Quarto implements ICadastro, Serializable {
 
     @Id

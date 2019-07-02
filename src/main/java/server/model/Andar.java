@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name = "andar")
 public class Andar implements ICadastro, Serializable {
 
     @Id
@@ -17,25 +17,15 @@ public class Andar implements ICadastro, Serializable {
     @Column(nullable = false)
     private int numeroAndar;
     @OneToMany(mappedBy = "andar")
-    private List<Quarto> quartos = new ArrayList<>();
+    private List<Quarto> quartos;
 
 
-    @Override
     public long getId() {
         return 0;
     }
 
-    @Override
     public void setId(long id) {
 
-    }
-
-    public Hotel getHotel() {
-        return hotel;
-    }
-
-    public void setHotel(Hotel hotel) {
-        this.hotel = hotel;
     }
 
     public int getNumeroAndar() {

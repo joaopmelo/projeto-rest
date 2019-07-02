@@ -4,13 +4,14 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table
+@Table(name = "estado")
 public class Estado implements ICadastro, Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     private String nome;
+    private String uf;
 
     @Override
     public long getId() {
@@ -30,5 +31,11 @@ public class Estado implements ICadastro, Serializable {
         this.nome = nome;
     }
 
+    public String getUf() {
+        return uf;
+    }
 
+    public void setUf(String uf) {
+        this.uf = uf;
+    }
 }

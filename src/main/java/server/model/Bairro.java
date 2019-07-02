@@ -4,15 +4,13 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table
+@Table(name = "bairro")
 public class Bairro implements ICadastro, Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     private String nome;
-    @OneToOne
-    private Hotel hotel;
     @ManyToOne
     private Cidade cidade;
 

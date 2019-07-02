@@ -1,6 +1,5 @@
-package server.rest;
+package server.dao;
 
-import server.dao.JpaDAO;
 import server.model.Hotel;
 
 import javax.persistence.EntityManager;
@@ -19,6 +18,13 @@ public class HotelDao extends JpaDAO<Hotel> {
         final String jpql = "select h from  Hotel  h where h.bairro.cidade.id = :cidadeId";
         TypedQuery<Hotel> query = getEm().createQuery(jpql, Hotel.class);
         query.setParameter("cidadeId", cidade_id);
+        return query.getResultList();
+    }
+
+    public List<Hotel> findByBairro(long bairro_id) {
+        final String jpql = "select h from  Hotel  h where h.bairro.id = :bairroId";
+        TypedQuery<Hotel> query = getEm().createQuery(jpql, Hotel.class);
+        query.setParameter("bairroId", bairro_id);
         return query.getResultList();
     }
 

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table
+@Table(name = "cidade")
 public class Cidade implements ICadastro, Serializable {
 
     @Id

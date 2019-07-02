@@ -3,7 +3,7 @@ package server.config;
 import server.dao.DAO;
 import server.dao.JpaDAO;
 import server.model.ICadastro;
-import server.rest.HotelDao;
+import server.dao.HotelDao;
 
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
@@ -18,7 +18,7 @@ public class Producers {
     private EntityManager em;
 
     @Produces
-    //@SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
     public <T extends ICadastro> DAO<T> getDao(InjectionPoint ip){
         ParameterizedType t = (ParameterizedType) ip.getType();
         Class classe = (Class) t.getActualTypeArguments()[0];
