@@ -26,7 +26,7 @@ public class ReservaQuartoResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public boolean inserir(ReservaQuarto reserva){
+    public long inserir(ReservaQuarto reserva){
 
         return dao.save(reserva);
     }
@@ -34,7 +34,7 @@ public class ReservaQuartoResource {
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public boolean update(ReservaQuarto reserva){
-        return dao.save(reserva);
+        return dao.save(reserva) > 0;
     }
 
     @DELETE

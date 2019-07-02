@@ -25,19 +25,19 @@ public class AndarResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public boolean inserir(Andar quarto){
+    public long inserir(Andar andar){
 
-        return dao.save(quarto);
+        return dao.save(andar);
     }
 
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public boolean update(Andar quarto){
-        return dao.save(quarto);
+    public boolean update(Andar andar){
+        return dao.save(andar) > 0;
     }
 
     @DELETE
-    public boolean delete (Andar quarto){
-        return dao.remove(quarto);
+    public boolean delete (Andar andar){
+        return dao.remove(andar);
     }
 }

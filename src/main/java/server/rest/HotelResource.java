@@ -25,7 +25,7 @@ public class HotelResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public boolean inserir(Hotel hotel){
+    public long inserir(Hotel hotel){
 
         return daoHotel.save(hotel);
     }
@@ -33,7 +33,7 @@ public class HotelResource {
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public boolean update(Hotel hotel){
-        return daoHotel.save(hotel);
+        return daoHotel.save(hotel) > 0;
     }
 
     @DELETE

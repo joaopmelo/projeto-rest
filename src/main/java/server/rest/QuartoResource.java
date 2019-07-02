@@ -26,7 +26,7 @@ public class QuartoResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public boolean inserir(Quarto quarto){
+    public long inserir(Quarto quarto){
 
         return dao.save(quarto);
     }
@@ -34,7 +34,7 @@ public class QuartoResource {
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public boolean update(Quarto quarto){
-        return dao.save(quarto);
+        return dao.save(quarto) > 0;
     }
 
     @DELETE

@@ -14,12 +14,12 @@ public class Bairro implements ICadastro, Serializable {
     @ManyToOne
     private Cidade cidade;
 
-    @Override
+
     public long getId() {
         return 0;
     }
 
-    @Override
+
     public void setId(long id) {
         this.id = id;
     }

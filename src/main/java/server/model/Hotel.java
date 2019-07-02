@@ -18,12 +18,11 @@ public class Hotel implements ICadastro, Serializable {
     private List<Andar> andares;
 
 
-    @Override
+
     public long getId() {
         return 0;
     }
-
-    @Override
+    
     public void setId(long id) {
         this.id=id;
     }

@@ -25,18 +25,35 @@ public class JpaDAO<T extends ICadastro> implements DAO<T> {
     }
 
     @Override
-    public boolean remove(ICadastro entity) {
+    public boolean remove(T entity) {
         em.remove(entity);
         return true;
     }
 
     @Override
-    public boolean save(ICadastro entity) {
-        if(entity.getId() > 0)
-            em.persist(entity);
-        else em.merge(entity);
+    public boolean remove(long id) {
+        T entity = findById(id);
+        return remove(entity);
+    }
 
-        return true;
+//    @Override
+//    public long save(ICadastro entity) {
+//        if(entity.getId() > 0)
+//            em.persist(entity);
+//        else em.merge(entity);
+//
+//        return true;
+//    }
+
+    @Override
+    public long save(T entity) {
+
+        if(entity.getId() > 0){
+            em.merge(entity);
+        }
+        else em.persist(entity);
+
+        return entity.getId();
     }
 
     @Override
@@ -46,6 +63,11 @@ public class JpaDAO<T extends ICadastro> implements DAO<T> {
         TypedQuery<T> query = em.createQuery(jpql, classe);
         query.setParameter(fieldName, value);
         return query.getSingleResult();
+    }
+
+    @Override
+    public TypedQuery<T> createQuery(String jpql) {
+        return em.createQuery(jpql, classe);
     }
 
 
