@@ -36,6 +36,14 @@ public class Andar implements ICadastro, Serializable {
         this.numeroAndar = numeroAndar;
     }
 
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
     public List<Quarto> getQuartos() {
         return quartos;
     }
