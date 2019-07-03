@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
+import java.util.List;
 
 @Path("/hotel")
 @Transactional
@@ -21,6 +23,30 @@ public class HotelResource {
     public Hotel findById(@PathParam("id")long id){
 
         return daoHotel.findById(id);
+    }
+
+    @GET
+    @Path("/cidade/{cidade_id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Hotel> findByCidade(@PathParam("cidade_id") long cidade_id){
+
+        List<Hotel> hoteis = daoHotel.findByCidade(cidade_id);
+        for (Hotel h : hoteis) {
+            h.setAndares(null);
+        }
+        return hoteis;
+    }
+
+    @GET
+    @Path("/bairro/{bairro_id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Hotel> findByBairro(@PathParam("bairro_id") long bairro_id){
+
+        List<Hotel> hoteis = daoHotel.findByCidade(bairro_id);
+        for (Hotel h : hoteis) {
+            h.setAndares(null);
+        }
+        return hoteis;
     }
 
     @POST

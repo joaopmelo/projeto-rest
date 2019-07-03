@@ -27,7 +27,6 @@ public class QuartoResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public long inserir(Quarto quarto){
-
         return dao.save(quarto);
     }
 

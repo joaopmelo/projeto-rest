@@ -29,5 +29,4 @@ public class HotelDao extends JpaDAO<Hotel> {
     }
 
 
-
 }

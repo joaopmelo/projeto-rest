@@ -1,8 +1,5 @@
 package server.model;
 
-import server.model.ICadastro;
-import server.model.Quarto;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -14,24 +11,26 @@ public class ReservaQuarto implements ICadastro, Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
+
     @OneToOne
     private Quarto quarto;
-    @Temporal(TemporalType.DATE)
+
+
     @Column(name = "data_inicio")
-    private Date dataInicio;
-    @Temporal(TemporalType.DATE)
+    private String dataInicio;
+
     @Column(name = "data_fim")
-    private Date dataFim;
+    private String dataFim;
+
     private Double preco;
 
 
     public long getId() {
-        return 0;
+        return id;
     }
 
-
     public void setId(long id) {
-
+        this.id = id;
     }
 
     public Quarto getQuarto() {
@@ -42,19 +41,19 @@ public class ReservaQuarto implements ICadastro, Serializable {
         this.quarto = quarto;
     }
 
-    public Date getDataInicio() {
+    public String getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(Date dataInicio) {
+    public void setDataInicio(String dataInicio)  {
         this.dataInicio = dataInicio;
     }
 
-    public Date getDataFim() {
+    public String getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(Date dataFim) {
+    public void setDataFim(String dataFim) {
         this.dataFim = dataFim;
     }
 

@@ -11,6 +11,5 @@ public interface DAO<T extends ICadastro> {
     T findByField(String fieldName, Object value);
     boolean remove(T entity);
     boolean remove(long id);
-
     long save(T entity);
 }

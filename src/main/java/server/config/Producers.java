@@ -29,6 +29,7 @@ public class Producers {
     @Produces
     //@SuppressWarnings("unchecked")
     public HotelDao getHotelDao(InjectionPoint ip){
+
         return new HotelDao(em);
     }
 }

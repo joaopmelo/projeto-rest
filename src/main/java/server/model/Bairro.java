@@ -16,9 +16,8 @@ public class Bairro implements ICadastro, Serializable {
 
 
     public long getId() {
-        return 0;
+        return id;
     }
-
 
     public void setId(long id) {
         this.id = id;

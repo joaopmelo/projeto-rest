@@ -2,7 +2,6 @@ package server.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -12,20 +11,22 @@ public class Andar implements ICadastro, Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
+
     @ManyToOne
     private Hotel hotel;
+
     @Column(nullable = false)
     private int numeroAndar;
+
     @OneToMany(mappedBy = "andar")
     private List<Quarto> quartos;
 
-
     public long getId() {
-        return 0;
+        return id;
     }
 
     public void setId(long id) {
-
+        this.id = id;
     }
 
     public int getNumeroAndar() {

@@ -14,18 +14,9 @@ public class Hotel implements ICadastro, Serializable {
     private long id;
     @ManyToOne
     private Bairro bairro;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Andar> andares;
 
-
-
-    public long getId() {
-        return 0;
-    }
-    
-    public void setId(long id) {
-        this.id=id;
-    }
 
     public Bairro getBairro() {
         return bairro;
@@ -41,5 +32,16 @@ public class Hotel implements ICadastro, Serializable {
 
     public void setAndares(List<Andar> andares) {
         this.andares = andares;
+    }
+
+
+    @Override
+    public long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(long id) {
+        this.id = id;
     }
 }

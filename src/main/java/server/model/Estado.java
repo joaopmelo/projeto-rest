@@ -13,12 +13,10 @@ public class Estado implements ICadastro, Serializable {
     private String nome;
     private String uf;
 
-    @Override
     public long getId() {
-        return 0;
+        return id;
     }
 
-    @Override
     public void setId(long id) {
         this.id = id;
     }

@@ -14,12 +14,10 @@ public class Cidade implements ICadastro, Serializable {
     @ManyToOne
     private Estado estado;
 
-    @Override
     public long getId() {
-        return 0;
+        return id;
     }
 
-    @Override
     public void setId(long id) {
         this.id = id;
     }
